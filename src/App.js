@@ -5,13 +5,12 @@ import Article from './components/Article';
 function App() {
 
   const [articles, setArticles] = useState([]);
-  const [subreddit, setSubreddit] = useState('webdev');
+  const [subreddit, setSubreddit] = useState('Frontend');
 
   useEffect(() => {
+
     fetch(`https://www.reddit.com/r/${subreddit}.json`).then(
       response => {
-        console.log('LOGGED RESPONSE: ', response);
-
         if (response.status !== 200) {
           console.log('ERROR!')
           return;
@@ -25,12 +24,25 @@ function App() {
           data => {
             // console.log('DATA from the Json Response: ', data);
             console.log('Children nested in Data: ', data.data.children);
-
             if (data != null) {
-              setArticles(data.data.children);
+              const myArticles = []
+              data.data.children.forEach(child => {
+                const myArticle = {
+                  title: child.data.title,
+                  link: child.data.permalink,
+                  text: child.data.selftext,
+                  author: child.data.author,
+                  comments: child.data.num_comments,
+                  timestamp: child.data.created_utc
+                };
+                myArticles.push(myArticle);
+
+              });
+              setArticles(myArticles);
             }
-          })
-      })
+          });
+
+      });
   }, [subreddit]);
 
   const onChange = (e) => {
@@ -38,14 +50,15 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <input type="text" className="input" value={subreddit} onChange={onChange}></input>
-      </header>
+    <div className="container">
+      <nav className="nav-container">
+        <input type="text" className="searchbar" value={subreddit} onChange={onChange}></input>
+        <i className="fa-solid fa-magnifying-glass"></i>
+      </nav>
       <div className='articles'>
         {
           (articles !== null) ? articles.map((article, index) =>
-            < Article key={index} article={article.data} />
+            < Article key={index} article={article} />
           ) : ''
         }
       </div>

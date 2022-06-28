@@ -1,14 +1,231 @@
 * {
-  margin: 0;
-  padding: 1px;
   box-sizing: border-box;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Comic Sans MS', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+
 }
 
-header {
-  background-image: linear-gradient(to right #FE4880 #FFCE00);
+body {
+  background-color: #ffdee9;
+  /* background-image: url('wave2.svg'); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-size: 1.3125rem;
+
 }
 
-.App-header {
-  background-image: linear-gradient(to right #FE4880 #FFCE00);
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+
+}
+
+.nav-container {
+  display: flex;
+  background: linear-gradient(to right, #FE4880, #FFCE00);
+  padding: 30px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+input.searchbar {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 600px;
+  font-style: italic;
+  text-transform: uppercase;
+  color: #FFF;
+  background: none;
+  border: none;
+  outline: none;
+  appearance: none;
+  flex-wrap: wrap;
+
+}
+
+input.searchbar:hover {
+  color: rgb(0, 183, 255);
+}
+
+
+.nav-container::before {
+  content: '/r/';
+  font-size: 2rem;
+  display: inline-block;
+  font-weight: 600px;
+  font-style: italic;
+  text-transform: uppercase;
+  color: #FFF;
+
+}
+
+
+.articles {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 80vw;
+  font-size: 1.3125rem;
+  justify-content: center;
+  row-gap: 30px;
+  column-gap: 30px;
+  font-size: 1rem;
+  font-weight: 400;
+  padding-top: 30px;
+
+}
+
+.articles article {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding: 15px 15px;
+  max-width: 60vw;
+  max-height: 400px;
+  background-color: wheat;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow:
+    0px 0px 2.2px rgba(0, 0, 0, 0.028),
+    0px 0px 5.3px rgba(0, 0, 0, 0.04),
+    0px 0px 10px rgba(0, 0, 0, 0.05),
+    0px 0px 17.9px rgba(0, 0, 0, 0.06),
+    0px 0px 33.4px rgba(0, 0, 0, 0.072),
+    0px 0px 80px rgba(0, 0, 0, 0.1);
+
+
+  width: 600px;
+  height: 500px;
+
+}
+
+.card-header {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  padding: 20px 10px 10px 10px;
+  background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6);
+  background-size: 500% auto;
+  border-top: 1px solid rgb(0, 183, 255);
+  border-right: 1px solid rgb(0, 183, 255);
+  border-left: 1px solid rgb(0, 183, 255);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.article-author {
+  box-sizing: border-box;
+  padding: 10px 10px 10px 0px;
+  font-size: 1.2rem;
+  color: #002;
+  font-family: 'Comic Sans MS', Arial, sans-serif;
+
+}
+
+.article-author h4 {
+  font-weight: lighter;
+}
+
+.author-name {
+  font-weight: 500;
+}
+
+
+.article-title {
+  box-sizing: border-box;
+  padding-bottom: 10px;
+  color: #002;
+  font-family: 'Brush Script MT', cursive;
+}
+
+.article-text {
+  box-sizing: border-box;
+  padding: 15px 10px 10px 20px;
+  overflow-y: scroll;
+  -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
+  border-right: 1px solid rgb(0, 183, 255);
+  border-left: 1px solid rgb(0, 183, 255);
+  border-bottom: 1px solid rgb(0, 183, 255);
+  height: 80%;
+}
+
+
+
+.articles article:hover {
+  background: linear-gradient(to right, #ffb0c8, #ffe992);
+}
+
+.articles article a {
+  text-decoration: none;
+}
+
+.articles article h3 {
+  color: black;
+}
+
+a span {
+  color: #002;
+}
+
+a span:hover {
+  color: #002;
+  text-decoration: underline;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px 5px 5px 5px;
+}
+
+.comment-text {
+  padding-left: 8px;
+}
+
+.fa-message {
+  padding-top: 3px;
+}
+
+.date-box {
+  padding-top: 3px;
+}
+
+
+
+@media screen and (max-width: 780px) {
+
+  .container {
+    /* display: flex;
+    flex-direction: column; */
+  }
+
+  .articles {
+    /* display: flex;
+    flex-direction: column; */
+    max-width: 85vw;
+    font-size: 2vw;
+  }
+}
+
+
+@media screen and (min-width: 780px) {
+  /* If the screen size is 601px wide or more*/
+
+  .container {
+    /* display: flex;
+    flex-direction: column; */
+  }
+
+  .articles {
+    /* display: flex;
+    flex-direction: column; */
+    max-width: 60vw;
+    font-size: 1.3125rem;
+  }
+
 }
