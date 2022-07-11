@@ -1,38 +1,35 @@
-* {
-  box-sizing: border-box;
-  font-family: 'Comic Sans MS', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
+:root {
+  --font-family: 'Manrope', sans-serif;
+
+  --gradient-text: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
+  --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
+
+  --color-bg: #040C18;
+  --color-footer: #031B34;
+  --color-blog: #042c54;
+  --color-text: #81AFDD;
+  --color-subtext: #FF8A71;
 }
 
-body {
-  background-color: #ffdee9;
-  /* background-image: url('./images/wave2.svg'); */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  font-size: 1.3125rem;
 
-}
-
-.main-container {
+.app-container {
   display: flex;
   justify-content: center;
   margin-top: 100px;
 
 }
 
-.nav-container {
-  display: flex;
-  background: linear-gradient(to right, #FE4880, #FFCE00);
-  padding: 30px;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+
+
+.searchbar-container {
   position: fixed;
-  top: 0;
-  width: 100%;
+  background: linear-gradient(to right, #FE4880, #FFCE00);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  width: 75%;
+
 }
 
 input.searchbar {
@@ -41,36 +38,27 @@ input.searchbar {
   font-weight: 600px;
   font-style: italic;
   text-transform: uppercase;
-  color: #FFF;
+  color: #002;
   background: none;
   border: none;
   outline: none;
   appearance: none;
-
-}
-
-input.searchbar:hover {
-  color: rgb(0, 183, 255);
 }
 
 
-.nav-container::before {
-  content: '/r/';
-  font-size: 2rem;
-  display: inline-block;
-  font-weight: 600px;
-  font-style: italic;
-  text-transform: uppercase;
-  color: #FFF;
+
+.subreddits-container {
+  display: flex;
 
 }
 
 .subreddits-block {
   display: flex;
+  flex: 1;
+  width: 32%;
   flex-direction: column;
   row-gap: 30px;
   margin-top: 50px;
-  border: 1px solid blue;
   height: 75vh;
   overflow-y: scroll;
   scrollbar-width: none;
@@ -113,9 +101,6 @@ input.searchbar:hover {
   padding: 20px 10px 10px 10px;
   background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6);
   background-size: 500% auto;
-  border-top: 1px solid rgb(0, 183, 255);
-  border-right: 1px solid rgb(0, 183, 255);
-  border-left: 1px solid rgb(0, 183, 255);
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
   width: 100%;
 }
@@ -143,17 +128,6 @@ input.searchbar:hover {
   padding-bottom: 10px;
   color: #002;
   font-family: 'Brush Script MT', cursive;
-}
-
-.article-text {
-  box-sizing: border-box;
-  padding: 15px 10px 10px 20px;
-  overflow-y: scroll;
-  -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
-  border-right: 1px solid rgb(0, 183, 255);
-  border-left: 1px solid rgb(0, 183, 255);
-  border-bottom: 1px solid rgb(0, 183, 255);
-  height: 80%;
 }
 
 
@@ -196,39 +170,4 @@ a span:hover {
 
 .date-box {
   padding-top: 3px;
-}
-
-
-
-@media screen and (max-width: 780px) {
-
-  .container {
-    /* display: flex;
-    flex-direction: column; */
-  }
-
-  .articles {
-    /* display: flex;
-    flex-direction: column; */
-    max-width: 85vw;
-    font-size: 2vw;
-  }
-}
-
-
-@media screen and (min-width: 780px) {
-  /* If the screen size is 601px wide or more*/
-
-  .container {
-    /* display: flex;
-    flex-direction: column; */
-  }
-
-  .articles {
-    /* display: flex;
-    flex-direction: column; */
-    max-width: 60vw;
-    font-size: 1.3125rem;
-  }
-
 }

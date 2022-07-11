@@ -1,17 +1,20 @@
 import React from 'react';
-import Subreddit from './components/subreddit/Subreddit';
+import { Article, Navbar, Search, Subreddit } from './components';
+import './App.css';
 
 function App() {
   return (
-    <div className="main-container">
-      <nav className="nav-container">
-        {/* <input type="text" className="searchbar" value={subreddit} onChange={onChange}></input> */}
-        <i className="fa-solid fa-magnifying-glass"></i>
-      </nav>
+    <div className="app-container">
+      <div className="gradient__bg">
+        <Navbar />
+        {/* <Header /> */}
+      </div>
+      <div className='subreddits-container'>
+        <Subreddit defaultSubreddit={"frontend"} />
+        <Subreddit defaultSubreddit={"webdev"} />
+        <Subreddit defaultSubreddit={"programming"} />
+      </div>
 
-      <Subreddit defaultSubreddit={"frontend"} />
-      <Subreddit defaultSubreddit={"webdev"} />
-      <Subreddit defaultSubreddit={"programming"} />
     </div >
   );
 }
