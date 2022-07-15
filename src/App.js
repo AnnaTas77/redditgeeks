@@ -4,9 +4,11 @@ import './App.css';
 
 function App() {
 
-  const defaultSubreddits = ["frontend", "webdev", "programming"];
+  if (localStorage.getItem("favouriteSubs") === null) {
+    localStorage.setItem("favouriteSubs", JSON.stringify(["frontend", "webdev", "programming"]))
+  }
 
-
+  const initialSubreddits = JSON.parse(localStorage.getItem("favouriteSubs"));
 
   return (
     <div className="app-container">
@@ -15,9 +17,9 @@ function App() {
         {/* <Header /> */}
       </div>
       <div className='subreddits-container'>
-        <Subreddit defaultSubreddit={"frontend"} />
-        <Subreddit defaultSubreddit={"webdev"} />
-        <Subreddit defaultSubreddit={"programming"} />
+        {initialSubreddits.map((initialSubreddit, index) => {
+          return <Subreddit key={index} localStorageIndex={index} initialSubreddit={initialSubreddit} />
+        })}
       </div>
 
     </div >
