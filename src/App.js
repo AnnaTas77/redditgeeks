@@ -3,6 +3,11 @@ import { Article, Navbar, Search, Subreddit } from './components';
 import './App.css';
 
 function App() {
+
+  const defaultSubreddits = ["frontend", "webdev", "programming"];
+
+
+
   return (
     <div className="app-container">
       <div className="gradient__bg">

@@ -21,15 +21,20 @@
 
 }
 
-
+.searchbar-background {
+  position: sticky;
+  top: 30px;
+}
 
 .searchbar-container {
-  position: fixed;
+  position: sticky;
+  top: 30px;
   background: linear-gradient(to right, #FE4880, #FFCE00);
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  width: 75%;
-
+  width: 100%;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 0px, rgb(51, 51, 51) 0px 0px 0px 3px;
 }
 
 input.searchbar {
@@ -49,28 +54,38 @@ input.searchbar {
 
 .subreddits-container {
   display: flex;
+  justify-content: space-evenly;
 
 }
 
 .subreddits-block {
   display: flex;
-  flex: 1;
-  width: 32%;
+  width: 30%;
   flex-direction: column;
   row-gap: 30px;
-  margin-top: 50px;
+  margin-top: 100px;
   height: 75vh;
   overflow-y: scroll;
   scrollbar-width: none;
 }
 
-.articles-container {
+.article-background {
+  background: rgba(0, 159, 255, 0.21);
+  padding-top: 30px;
+  border-radius: 4px;
+}
 
+.articles-box {}
+
+.articles-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
   max-width: 80vw;
   font-size: 1.3125rem;
   font-size: 1rem;
   font-weight: 400;
-  padding: 30px;
+  padding: 0 30px 30px 30px;
 
 }
 
@@ -91,7 +106,6 @@ input.searchbar {
     0px 0px 33.4px rgba(0, 0, 0, 0.072),
     0px 0px 80px rgba(0, 0, 0, 0.1);
 
-  margin-top: 20px;
   overflow: hidden;
 }
 
