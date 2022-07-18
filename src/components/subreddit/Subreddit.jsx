@@ -1,24 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Search from '../search/Search';
 import Article from "../article/Article";
-// import './subreddit.css';
+import './subreddit.css';
 
 
 function SubredditsBlock(props) {
-    // const [storage, setStorage] = useState({ sub: props.defaultSubreddit });
+
     const [subredditContainer, setSubredditContainer] = useState(props.initialSubreddit);
     const [articles, setArticles] = useState([]);
-
-
-
-    // useEffect(() => {
-    //     if (localStorage.getItem("favouriteSubs") === null) {
-    //         // console.log("Empty storage")
-    //         // console.log("Storage: ", storage)
-    //         setSubredditContainer(props.defaultSubreddit);
-    //         console.log("subredditContainer: ", subredditContainer)
-    //     }
-    // }, [subredditContainer])
 
 
     useEffect(() => {
@@ -44,7 +33,7 @@ function SubredditsBlock(props) {
                     };
                     myArticles.push(myArticle);
                 });
-                // console.log('My articles ID:0: ', myArticles[0].subreddit);
+
                 setArticles(myArticles);
 
             }).catch(err => {
@@ -73,9 +62,10 @@ function SubredditsBlock(props) {
     };
 
 
+
     return (
         <div className='subreddits-block'>
-            <div className='article-background'>
+            <div className='article-wrapper'>
                 <div className='articles-container'>
                     <Search subreddit={subredditContainer} onChange={onChange} />
                     <div className='articles-box'>

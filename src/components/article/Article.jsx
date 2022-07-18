@@ -21,11 +21,11 @@ function Article(props) {
                 </a>
 
                 <div className="article-author">
-                    <h4>Posted by <span><a target="_blank" rel="noreferrer" href={`https://www.reddit.com/user/${props.article.author}`}>
+                    <h5>Posted by <span><a target="_blank" rel="noreferrer" href={`https://www.reddit.com/user/${props.article.author}`}>
                         <span className="author-name">{props.article.author}</span>
                     </a>
                     </span>
-                    </h4>
+                    </h5>
                 </div>
             </div>
 

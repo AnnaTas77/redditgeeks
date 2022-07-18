@@ -1,14 +1,24 @@
-import React from 'react';
-import { Article, Navbar, Search, Subreddit } from './components';
+import React, { useState } from 'react';
+import { Article, Navbar, Search, Subreddit, Addsub } from './components';
 import './App.css';
 
 function App() {
+
+  const [componentList, setComponentList] = useState([]);
+
+  const addSubbreddit = () => {
+    console.log('Clicked add new sub');
+    setComponentList(componentList.concat(<Subreddit key={componentList.length} />));
+  }
+
+
 
   if (localStorage.getItem("favouriteSubs") === null) {
     localStorage.setItem("favouriteSubs", JSON.stringify(["frontend", "webdev", "programming"]))
   }
 
   const initialSubreddits = JSON.parse(localStorage.getItem("favouriteSubs"));
+
 
   return (
     <div className="app-container">
@@ -17,9 +27,21 @@ function App() {
         {/* <Header /> */}
       </div>
       <div className='subreddits-container'>
-        {initialSubreddits.map((initialSubreddit, index) => {
-          return <Subreddit key={index} localStorageIndex={index} initialSubreddit={initialSubreddit} />
-        })}
+        <div className='subreddits-wrapper'>
+
+          {initialSubreddits.map((initialSubreddit, index) => {
+            return <Subreddit key={index} localStorageIndex={index} initialSubreddit={initialSubreddit} />
+          })}
+
+          {componentList}
+
+          <div className='add-subreddit'>
+            <Addsub addSubbreddit={addSubbreddit} />
+          </div>
+
+
+        </div>
+
       </div>
 
     </div >
