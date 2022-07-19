@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { git Navbar, Subreddit, Addsub } from './components';
+import { Navbar, Subreddit, Addsub } from './components';
 import './App.css';
 
 function App() {
@@ -29,10 +29,10 @@ function App() {
 
   return (
     <div className="app-container">
-      <div className="gradient__bg">
-        <Navbar />
-        {/* <Header /> */}
-      </div>
+      {/* <div className="gradient__bg"> */}
+      <Navbar />
+      {/* <Header /> */}
+      {/* </div> */}
       <div className='subreddits-container'>
         <div className='subreddits-wrapper'>
 

@@ -1,0 +1,28 @@
+.searchbar-background {
+    position: sticky;
+    top: 30px;
+}
+
+.searchbar-container {
+    position: sticky;
+    top: 30px;
+    background: linear-gradient(to right, #FE4880, #FFCE00);
+    z-index: 1;
+    width: 100%;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 0px, rgb(51, 51, 51) 0px 0px 0px 3px;
+}
+
+input.searchbar {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 600px;
+    font-style: italic;
+    text-transform: uppercase;
+    color: #002;
+    background: none;
+    border: none;
+    outline: none;
+    appearance: none;
+}

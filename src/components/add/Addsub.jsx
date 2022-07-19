@@ -6,7 +6,7 @@ const Addsub = (props) => {
 
     return (
         <div className='addsub-wrapper'>
-            <button className="button-plus" role="button" onClick={props.addSubbreddit}>+</button>
+            <button className="button-plus" onClick={props.addSubbreddit}>+</button>
         </div>
     )
 }
