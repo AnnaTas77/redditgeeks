@@ -1,6 +1,6 @@
 .subreddits-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     max-width: 90vw;
     flex-wrap: wrap;
     margin-top: 100px;
@@ -16,21 +16,19 @@
     /*grid-template-columns: repeat(5, 1fr);
     grid-gap: 24px; */
 
-    /* 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+
     width: 93%;
     column-gap: 24px;
     row-gap: 24px;
     margin-top: 100px;
-    justify-content: center; */
+    justify-content: center;
 }
 
 
 .subreddits-block {
     display: flex;
-    max-width: 600px;
+    /* max-width: 600px; */
+    max-width: 32.5%;
     max-height: 700px;
     overflow: hidden;
 }

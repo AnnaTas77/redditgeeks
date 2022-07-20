@@ -12,7 +12,7 @@ function App() {
   }
 
 
-  const addSubbreddit = () => {
+  const addSubbreddit = (newSubreddit) => {
 
     const storedSubs = localStorage.getItem("favouriteSubs");
 
@@ -21,7 +21,7 @@ function App() {
     }
 
     let subsArray = JSON.parse(storedSubs);
-    subsArray.push("sofia")
+    subsArray.push(newSubreddit)
     localStorage.setItem("favouriteSubs", JSON.stringify(subsArray))
 
     setUpdateTrigger(updateTrigger => updateTrigger + 1); // updates the state to force render
@@ -32,8 +32,8 @@ function App() {
 
       <Navbar />
 
+      {/* <div className='subreddits-wrapper'> */}
       <div className='subreddits-container'>
-        {/* <div className='subreddits-wrapper'> */}
 
         {initialSubreddits.map((initialSubreddit, index) => {
           return <Subreddit key={index} localStorageIndex={index} initialSubreddit={initialSubreddit} />
@@ -43,9 +43,9 @@ function App() {
           <Addsub addSubbreddit={addSubbreddit} />
         </div>
 
-        {/* </div> */}
-
       </div>
+
+      {/* </div> */}
 
     </div >
   );

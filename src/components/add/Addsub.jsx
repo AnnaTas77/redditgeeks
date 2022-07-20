@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './addsub.css'
 import Search from '../search/Search';
 
-const Addsub = (props) => {
 
+const Addsub = (props) => {
 
     return (
         <div className='addsub-wrapper'>
-            <div classname="searchbar-container"><Search /></div>
+
+            <div className="searchbar-container">
+                <Search />
+            </div>
+
             <div className="button-wrapper">
-                <button className="button-plus" onClick={props.addSubbreddit}>+</button>
+                {/* <button className="button-plus" onClick={onClick}> + </button> */}
             </div>
 
         </div>
