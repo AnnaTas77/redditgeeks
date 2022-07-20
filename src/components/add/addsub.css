@@ -13,15 +13,25 @@
 .addsub-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
+    align-items: stretch;
+    row-gap: 25px;
+    padding: 30px;
     height: 100%;
     width: 100%;
     margin-top: 25px;
     background-color: #ffffff0a;
     border-radius: 4px;
     border: 1px solid #ffffff26;
+    padding-top: 40px;
 }
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 
 .button-plus {
     padding: 15px 50px;

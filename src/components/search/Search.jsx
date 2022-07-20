@@ -7,7 +7,7 @@ function Search(props) {
     return (
         <div className="searchbar-background">
             <div className="searchbar-container">
-                <input type="text" className="searchbar" value={props.subreddit} onChange={props.onChange}></input>
+                <input type="text" className="searchbar" placeholder="Enter new subreddit" value={props.subreddit} onChange={props.onChange}></input>
             </div>
         </div>
 
