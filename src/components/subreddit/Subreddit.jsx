@@ -65,22 +65,22 @@ function SubredditsBlock(props) {
 
     return (
         <div className='subreddits-block'>
-            <div className='article-wrapper'>
-                <div className='articles-container'>
-                    <Search subreddit={subredditContainer} onChange={onChange} />
-                    <div className='articles-box'>
-                        {
-                            (articles !== null) ? articles.map((article, index) =>
+            {/* <div className='article-wrapper'> */}
+            <div className='articles-container'>
+                <Search subreddit={subredditContainer} onChange={onChange} />
+                <div className='articles-box'>
+                    {
+                        (articles !== null) ? articles.map((article, index) =>
 
-                                < Article key={index} article={article} />
-                            ) : ''
-                        }
-                    </div>
-
+                            < Article key={index} article={article} />
+                        ) : ''
+                    }
                 </div>
-            </div>
 
+            </div>
         </div>
+
+        // </div>
     )
 
 }

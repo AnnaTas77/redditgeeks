@@ -29,22 +29,21 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* <div className="gradient__bg"> */}
+
       <Navbar />
-      {/* <Header /> */}
-      {/* </div> */}
+
       <div className='subreddits-container'>
-        <div className='subreddits-wrapper'>
+        {/* <div className='subreddits-wrapper'> */}
 
-          {initialSubreddits.map((initialSubreddit, index) => {
-            return <Subreddit key={index} localStorageIndex={index} initialSubreddit={initialSubreddit} />
-          })}
+        {initialSubreddits.map((initialSubreddit, index) => {
+          return <Subreddit key={index} localStorageIndex={index} initialSubreddit={initialSubreddit} />
+        })}
 
-          <div className='add-subreddit'>
-            <Addsub addSubbreddit={addSubbreddit} />
-          </div>
-
+        <div className='add-subreddit'>
+          <Addsub addSubbreddit={addSubbreddit} />
         </div>
+
+        {/* </div> */}
 
       </div>
 

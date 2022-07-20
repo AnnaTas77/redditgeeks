@@ -1,6 +1,12 @@
 .subreddits-container {
     display: flex;
     justify-content: center;
+    max-width: 90vw;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    row-gap: 25px;
+    column-gap: 25px;
+    max-height: 100vh;
 
 }
 
@@ -10,7 +16,7 @@
     /*grid-template-columns: repeat(5, 1fr);
     grid-gap: 24px; */
 
-
+    /* 
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -18,14 +24,13 @@
     column-gap: 24px;
     row-gap: 24px;
     margin-top: 100px;
-    justify-content: center;
+    justify-content: center; */
 }
 
 
 .subreddits-block {
     display: flex;
-    flex-direction: column;
-    row-gap: 30px;
-    /* margin-top: 100px; */
-    width: 30%;
+    max-width: 600px;
+    max-height: 700px;
+    overflow: hidden;
 }

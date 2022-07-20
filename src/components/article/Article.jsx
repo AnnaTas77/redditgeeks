@@ -27,8 +27,9 @@ function Article(props) {
                     </span>
                     </h5>
                 </div>
-            </div>
 
+
+            </div>
 
             <div className="aside">
                 <div className="comment-box">
@@ -38,7 +39,6 @@ function Article(props) {
                 <div className="date-box">
                     {passedTime}
                 </div>
-
             </div>
         </article>
     )
