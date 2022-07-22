@@ -5,15 +5,32 @@ import Search from '../search/Search';
 
 const Addsub = (props) => {
 
+    const [newSubreddit, setNewSubreddit] = useState("");
+
+
+    const subsHandler = (e) => {
+        setNewSubreddit(e.currentTarget.value);
+    };
+
+    const addNewSub = () => {
+        const addSubreddit = props.addSubreddit;
+        if (newSubreddit !== "") {
+            addSubreddit(newSubreddit)
+            setNewSubreddit("");
+        } else {
+            alert("Please enter a subreddit title.")
+        }
+    }
+
     return (
         <div className='addsub-wrapper'>
 
             <div className="searchbar-container">
-                <Search />
+                <Search subreddit={newSubreddit} onChange={subsHandler} />
             </div>
 
             <div className="button-wrapper">
-                {/* <button className="button-plus" onClick={onClick}> + </button> */}
+                <button className="button-plus" onClick={addNewSub} >+</button>
             </div>
 
         </div>

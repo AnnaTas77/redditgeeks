@@ -52,35 +52,35 @@ function SubredditsBlock(props) {
 
         const currentSubs = localStorage.getItem("favouriteSubs")
         if (currentSubs === null) {
-            console.log("Empty storage")
+            console.log("Empty storage.")
         } else {
             let newSubs = JSON.parse(currentSubs)
             newSubs[props.localStorageIndex] = e.currentTarget.value
             localStorage.setItem("favouriteSubs", JSON.stringify(newSubs))
-            console.log("storing in local storage")
+            console.log("Storing in local storage.")
         }
     };
 
 
+    const onDelete = () => {
+        props.deleteSubreddit(props.localStorageIndex)
+    }
 
     return (
         <div className='subreddits-block'>
-            {/* <div className='article-wrapper'> */}
             <div className='articles-container'>
-                <Search subreddit={subredditContainer} onChange={onChange} />
+                <Search subreddit={subredditContainer} onChange={onChange} onDelete={onDelete} />
                 <div className='articles-box'>
                     {
-                        (articles !== null) ? articles.map((article, index) =>
+                        (articles.length > 0) ? articles.map((article, index) =>
 
                             < Article key={index} article={article} />
-                        ) : ''
+                        ) : <div className='loading'>Loading articles...</div>
                     }
                 </div>
 
             </div>
         </div>
-
-        // </div>
     )
 
 }

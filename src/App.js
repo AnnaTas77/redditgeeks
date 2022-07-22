@@ -4,27 +4,42 @@ import './App.css';
 
 function App() {
 
-  const [updateTrigger, setUpdateTrigger] = useState(0);
-
-  const initialSubreddits = JSON.parse(localStorage.getItem("favouriteSubs"));
-  if (localStorage.getItem("favouriteSubs") === null) {
-    localStorage.setItem("favouriteSubs", JSON.stringify(["frontend", "webdev", "programming"]))
+  let storedSubreddits = localStorage.getItem("favouriteSubs");
+  if (storedSubreddits === null) {
+    storedSubreddits = JSON.stringify(["frontend", "webdev", "programming"]) // initiates default subreddits
+    localStorage.setItem("favouriteSubs", storedSubreddits)
   }
+  const storedSubredditsArray = JSON.parse(storedSubreddits)
 
+  const [subreddits, setSubreddits] = useState(storedSubredditsArray);
 
-  const addSubbreddit = (newSubreddit) => {
+  const addSubreddit = (newSubreddit) => {
 
     const storedSubs = localStorage.getItem("favouriteSubs");
+
+    if (storedSubs.includes(newSubreddit.toLowerCase())) {
+      alert(`${newSubreddit} already exists.`)
+      return; // guard pattern
+    }
 
     if (storedSubs === null) {
       console.error("State is not expected to be null at this point.");
     }
-
     let subsArray = JSON.parse(storedSubs);
     subsArray.push(newSubreddit)
     localStorage.setItem("favouriteSubs", JSON.stringify(subsArray))
 
-    setUpdateTrigger(updateTrigger => updateTrigger + 1); // updates the state to force render
+    setSubreddits(subsArray)
+  }
+
+  const deleteSubreddit = (indexToDelete) => {
+
+    const subsArray = JSON.parse(localStorage.getItem("favouriteSubs"));
+    subsArray.splice(indexToDelete, 1)
+    localStorage.setItem("favouriteSubs", JSON.stringify(subsArray))
+    console.log("Storing in local storage.")
+
+    setSubreddits(subsArray)
   }
 
   return (
@@ -32,20 +47,17 @@ function App() {
 
       <Navbar />
 
-      {/* <div className='subreddits-wrapper'> */}
       <div className='subreddits-container'>
 
-        {initialSubreddits.map((initialSubreddit, index) => {
-          return <Subreddit key={index} localStorageIndex={index} initialSubreddit={initialSubreddit} />
+        {subreddits.map((subreddit, index) => {
+          return <Subreddit key={subreddit} localStorageIndex={index} initialSubreddit={subreddit} deleteSubreddit={deleteSubreddit} />
         })}
 
         <div className='add-subreddit'>
-          <Addsub addSubbreddit={addSubbreddit} />
+          <Addsub addSubreddit={addSubreddit} />
         </div>
 
       </div>
-
-      {/* </div> */}
 
     </div >
   );

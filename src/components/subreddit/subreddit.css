@@ -11,12 +11,6 @@
 }
 
 .subreddits-wrapper {
-    /* display: grid;
-    /* max-width: 60%; */
-    /*grid-template-columns: repeat(5, 1fr);
-    grid-gap: 24px; */
-
-
     width: 93%;
     column-gap: 24px;
     row-gap: 24px;
@@ -29,6 +23,7 @@
     display: flex;
     /* max-width: 600px; */
     max-width: 32.5%;
+    min-width: 32.5%;
     max-height: 700px;
     overflow: hidden;
 }
