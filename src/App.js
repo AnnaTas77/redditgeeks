@@ -60,7 +60,21 @@ function App() {
 
       <footer className='footer'>
         <div className='social'>
-          <h4>Let's connect!</h4>
+          <a href="mailto:hello.annatas@gmail.com" aria-label="Anna's email - Click to copy." target="_blank">
+            <div className="icon-container">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/anna-tasheva-48074085/" aria-label="Anna's LinkedIn profile." target="_blank">
+            <div className="icon-container">
+              <i class="fa-brands fa-linkedin"></i>
+            </div>
+          </a>
+          <a href="https://github.com/AnnaTas77" aria-label="Anna's GitHub profile." target="_blank">
+            <div className="icon-container">
+              <i class="fa-brands fa-github"></i>
+            </div>
+          </a>
         </div>
 
         <div className='credits'>

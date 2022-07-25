@@ -5,8 +5,6 @@
     background: linear-gradient(to right, #FE4880, #FFCE00);
     padding: 10px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
-    /* position: fixed;
-    top: 0; */
     width: 100%;
     height: 15%;
     z-index: 1;
@@ -14,11 +12,11 @@
 
 
 .nav-logo img {
-    max-height: 70px;
+    max-height: 60px;
     width: auto;
 }
 
 .website-name {
     padding: 10px;
-    font-size: 2rem;
+    font-size: 1.7rem;
 }

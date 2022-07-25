@@ -6,17 +6,12 @@
 }
 
 .searchbar-container {
-    /* position: sticky;
-    top: 30px; */
-    /* display: flex; */
     padding-left: 10px;
     background: linear-gradient(to right, #FE4880, #FFCE00);
-    /* z-index: 1; */
     width: 100%;
     outline: none;
     border: none;
     border-radius: 4px;
-
 }
 
 .searchbar-border-with-delete {
@@ -45,8 +40,6 @@ input.searchbar {
 }
 
 .delete-button {
-    /* min-width: 70px;
-    min-height: 70px; */
     width: 15%;
     height: 100%;
     border-radius: 4px;

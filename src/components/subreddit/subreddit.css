@@ -1,8 +1,6 @@
 .subreddits-container {
     display: flex;
     justify-content: center;
-    /* max-width: 90vw;
-    max-height: 100vh; */
     flex-wrap: wrap;
     row-gap: 25px;
     column-gap: 25px;
@@ -24,11 +22,5 @@
 .subreddits-block {
     display: flex;
     width: 400px;
-    /* width: 32%; */
     overflow: hidden;
-    /* max-width: 600px; */
-    /* max-width: 32.5%;
-    min-width: 32.5%;
-    max-height: 700px; */
-
 }
