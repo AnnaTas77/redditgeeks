@@ -3,11 +3,12 @@
     justify-content: center;
     align-items: center;
     background: linear-gradient(to right, #FE4880, #FFCE00);
-    padding: 30px;
+    padding: 10px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    top: 0;
+    /* position: fixed;
+    top: 0; */
     width: 100%;
+    height: 15%;
     z-index: 1;
 }
 

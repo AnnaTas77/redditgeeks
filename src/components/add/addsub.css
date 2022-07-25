@@ -6,9 +6,10 @@
     color: black;
     border-radius: 4px;
     /* max-width: 600px; */
-    max-width: 32.5%;
-    width: 100%;
+    /* max-width: 32.5%;
+    width: 100%; */
     max-height: 700px;
+    width: 400px;
 }
 
 .addsub-wrapper {
@@ -34,7 +35,7 @@
 
 
 .button-plus {
-    padding: 15px 50px;
+    padding: 12px 50px;
     text-align: center;
     text-decoration: none;
     display: inline-block;

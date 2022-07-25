@@ -43,23 +43,34 @@ function App() {
   }
 
   return (
-    <div className="app-container">
+    <div>
+      <div className="app-container">
 
-      <Navbar />
+        <Navbar />
 
-      <div className='subreddits-container'>
+        <div className='subreddits-container flex-grid'>
+          {subreddits.map((subreddit, index) => {
+            return <Subreddit key={subreddit} localStorageIndex={index} initialSubreddit={subreddit} deleteSubreddit={deleteSubreddit} />
+          })}
+          <div className='add-subreddit'>
+            <Addsub addSubreddit={addSubreddit} />
+          </div>
+        </div>
+      </div >
 
-        {subreddits.map((subreddit, index) => {
-          return <Subreddit key={subreddit} localStorageIndex={index} initialSubreddit={subreddit} deleteSubreddit={deleteSubreddit} />
-        })}
-
-        <div className='add-subreddit'>
-          <Addsub addSubreddit={addSubreddit} />
+      <footer className='footer'>
+        <div className='social'>
+          <h4>Let's connect!</h4>
         </div>
 
-      </div>
+        <div className='credits'>
+          Designed and developed by Anna Tasheva ©2022
+        </div>
+      </footer>
 
-    </div >
+    </div>
+
+
   );
 }
 

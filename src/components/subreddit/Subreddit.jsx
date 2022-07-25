@@ -67,7 +67,7 @@ function SubredditsBlock(props) {
     }
 
     return (
-        <div className='subreddits-block'>
+        <div className='subreddits-block col'>
             <div className='articles-container'>
                 <Search subreddit={subredditContainer} onChange={onChange} onDelete={onDelete} />
                 <div className='articles-box'>

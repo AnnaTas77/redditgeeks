@@ -17,28 +17,24 @@ function Article(props) {
         <article className='article'>
             <div className="card-body">
                 <a className="article-title" target="_blank" rel="noreferrer" href={`https://www.reddit.com${props.article.link}`}>
-                    <h3>{props.article.title}</h3>
+                    <h4>{props.article.title}</h4>
                 </a>
 
-                <div className="article-author">
-                    <h5>Posted by <span><a target="_blank" rel="noreferrer" href={`https://www.reddit.com/user/${props.article.author}`}>
-                        <span className="author-name">{props.article.author}</span>
-                    </a>
-                    </span>
-                    </h5>
+                <div className="article-info">
+                    <div className="article-author">
+                        <h5>Posted by <span><a target="_blank" rel="noreferrer" href={`https://www.reddit.com/user/${props.article.author}`}>
+                            <span className="author-name">{props.article.author}</span>
+                        </a>
+                        </span>
+                        </h5>
+                    </div>
+                    <div className="date-box">
+                        <h5>{passedTime} ago</h5>
+                    </div>
                 </div>
-
-
             </div>
 
             <div className="aside">
-                <div className="comment-box">
-                    <i className="fa-solid fa-message"></i>
-                    <span className="comment-text">{props.article.comments} </span>
-                </div>
-                <div className="date-box">
-                    {passedTime}
-                </div>
             </div>
         </article>
     )
