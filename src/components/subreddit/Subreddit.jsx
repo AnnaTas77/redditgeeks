@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Search from '../search/Search';
 import Article from "../article/Article";
 import './subreddit.css';
+import swal from 'sweetalert';
 
 
 function SubredditsBlock(props) {
@@ -28,7 +29,6 @@ function SubredditsBlock(props) {
                         title: child.data.title,
                         link: child.data.permalink,
                         author: child.data.author,
-                        comments: child.data.num_comments,
                         timestamp: child.data.created_utc
                     };
                     myArticles.push(myArticle);
@@ -48,7 +48,14 @@ function SubredditsBlock(props) {
 
 
     const onChange = (e) => {
-        setSubredditContainer(e.currentTarget.value);
+
+        const userInput = e.currentTarget.value;
+
+        if (userInput.length <= 10) {
+            setSubredditContainer(userInput);
+        } else {
+            swal("Please provide up to 10 characters.");
+        }
 
         const currentSubs = localStorage.getItem("favouriteSubs")
         if (currentSubs === null) {

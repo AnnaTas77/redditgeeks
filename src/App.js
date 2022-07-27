@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Navbar, Subreddit, Addsub } from './components';
 import './App.css';
+import swal from 'sweetalert';
 
 function App() {
 
@@ -13,19 +14,28 @@ function App() {
 
   const [subreddits, setSubreddits] = useState(storedSubredditsArray);
 
+
   const addSubreddit = (newSubreddit) => {
 
     const storedSubs = localStorage.getItem("favouriteSubs");
 
-    if (storedSubs.includes(newSubreddit.toLowerCase())) {
-      alert(`${newSubreddit} already exists.`)
+    let subsArray;
+    if (storedSubs === null) {
+      console.error("State is not expected to be null at this point.");
+      subsArray = [];
+    } else {
+      subsArray = JSON.parse(storedSubs);
+    }
+
+    if (subsArray.includes(newSubreddit.toLowerCase())) {
+      const lowerSub = newSubreddit.toLowerCase();
+      const capitalizedSub = lowerSub.charAt(0).toUpperCase() + lowerSub.slice(1);
+      swal({
+        title: `"${capitalizedSub}" already exists.`,
+      });
       return; // guard pattern
     }
 
-    if (storedSubs === null) {
-      console.error("State is not expected to be null at this point.");
-    }
-    let subsArray = JSON.parse(storedSubs);
     subsArray.push(newSubreddit)
     localStorage.setItem("favouriteSubs", JSON.stringify(subsArray))
 
@@ -41,6 +51,7 @@ function App() {
 
     setSubreddits(subsArray)
   }
+
 
   return (
     <div>
@@ -62,17 +73,17 @@ function App() {
         <div className='social'>
           <a href="mailto:hello.annatas@gmail.com" aria-label="Anna's email - Click to copy." target="_blank">
             <div className="icon-container">
-              <i class="fa-solid fa-envelope"></i>
+              <i className="fa-solid fa-envelope"></i>
             </div>
           </a>
           <a href="https://www.linkedin.com/in/anna-tasheva-48074085/" aria-label="Anna's LinkedIn profile." target="_blank">
             <div className="icon-container">
-              <i class="fa-brands fa-linkedin"></i>
+              <i className="fa-brands fa-linkedin"></i>
             </div>
           </a>
           <a href="https://github.com/AnnaTas77" aria-label="Anna's GitHub profile." target="_blank">
             <div className="icon-container">
-              <i class="fa-brands fa-github"></i>
+              <i className="fa-brands fa-github"></i>
             </div>
           </a>
         </div>

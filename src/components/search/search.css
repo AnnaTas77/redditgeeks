@@ -1,13 +1,13 @@
 .searchbar-background {
     position: sticky;
-    top: 30px;
+    top: 20px;
     display: flex;
     width: 100%;
 }
 
 .searchbar-container {
     padding-left: 10px;
-    background: linear-gradient(to right, #FE4880, #FFCE00);
+    background: var(--gradient-pink-to-yellow);
     width: 100%;
     outline: none;
     border: none;
@@ -32,7 +32,7 @@ input.searchbar {
     font-size: 1.5rem;
     font-style: italic;
     text-transform: uppercase;
-    color: #002;
+    color: var(--text-color);
     background: none;
     border: none;
     outline: none;
@@ -50,9 +50,17 @@ input.searchbar {
     border-bottom-left-radius: 0px;
 }
 
+
 .fa-trash-alt::before,
 .fa-trash-can::before {
     content: "\f2ed";
     font-size: 1.5rem;
-    color: #5ae3e7;
+    color: var(--custom-turquoise);
+}
+
+.fa-trash-can:hover,
+.fa-trash-alt:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: all .2s ease-in-out;
 }

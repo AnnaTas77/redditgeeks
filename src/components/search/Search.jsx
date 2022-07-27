@@ -16,7 +16,8 @@ function Search(props) {
     return (
         <div className="searchbar-background">
             <div className={searchbarBorderClasses}>
-                <input type="text" className="searchbar" placeholder="Search subreddits" value={props.subreddit} onChange={props.onChange}></input>
+                <input type="text" className="searchbar" placeholder="Search subreddits" maxLength="10"
+                    value={props.subreddit} onChange={props.onChange} onKeyDown={props.onKeyDown}></input>
             </div>
             {deleteButton}
         </div>

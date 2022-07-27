@@ -22,14 +22,14 @@ function Article(props) {
 
                 <div className="article-info">
                     <div className="article-author">
-                        <h5>Posted by <span><a target="_blank" rel="noreferrer" href={`https://www.reddit.com/user/${props.article.author}`}>
+                        <h6>Posted by <span><a target="_blank" rel="noreferrer" href={`https://www.reddit.com/user/${props.article.author}`}>
                             <span className="author-name">{props.article.author}</span>
                         </a>
                         </span>
-                        </h5>
+                        </h6>
                     </div>
                     <div className="date-box">
-                        <h5>{passedTime} ago</h5>
+                        <h6>{passedTime} ago</h6>
                     </div>
                 </div>
             </div>
