@@ -8,11 +8,19 @@ function App() {
   let storedSubreddits = localStorage.getItem("favouriteSubs");
   if (storedSubreddits === null) {
     storedSubreddits = JSON.stringify(["frontend", "webdev", "programming"]) // initiates default subreddits
-    localStorage.setItem("favouriteSubs", storedSubreddits)
+    localStorage.setItem("favouriteSubs", storedSubreddits);
   }
-  const storedSubredditsArray = JSON.parse(storedSubreddits)
+  const storedSubredditsArray = JSON.parse(storedSubreddits);
 
+  const [errorState, setErrorState] = useState(null);
   const [subreddits, setSubreddits] = useState(storedSubredditsArray);
+
+  const errorHandler = (error) => {
+    console.log("Found this error: ", error);
+    setErrorState(error);
+    // console.log("Error state:", errorState) //object when null or string when error occurs
+
+  }
 
 
   const addSubreddit = (newSubreddit) => {
@@ -36,20 +44,19 @@ function App() {
       return; // guard pattern
     }
 
-    subsArray.push(newSubreddit)
-    localStorage.setItem("favouriteSubs", JSON.stringify(subsArray))
-
-    setSubreddits(subsArray)
+    subsArray.push(newSubreddit);
+    localStorage.setItem("favouriteSubs", JSON.stringify(subsArray));
+    setSubreddits(subsArray);
   }
 
+
   const deleteSubreddit = (indexToDelete) => {
-
     const subsArray = JSON.parse(localStorage.getItem("favouriteSubs"));
-    subsArray.splice(indexToDelete, 1)
-    localStorage.setItem("favouriteSubs", JSON.stringify(subsArray))
-    console.log("Storing in local storage.")
+    subsArray.splice(indexToDelete, 1);
+    localStorage.setItem("favouriteSubs", JSON.stringify(subsArray));
+    console.log("Storing in local storage.");
 
-    setSubreddits(subsArray)
+    setSubreddits(subsArray);
   }
 
 
@@ -61,10 +68,11 @@ function App() {
 
         <div className='subreddits-container flex-grid'>
           {subreddits.map((subreddit, index) => {
-            return <Subreddit key={subreddit} localStorageIndex={index} initialSubreddit={subreddit} deleteSubreddit={deleteSubreddit} />
+            return <Subreddit key={subreddit} localStorageIndex={index} initialSubreddit={subreddit}
+              deleteSubreddit={deleteSubreddit} onError={errorHandler} />
           })}
           <div className='add-subreddit'>
-            <Addsub addSubreddit={addSubreddit} />
+            <Addsub addSubreddit={addSubreddit} onError={errorHandler} />
           </div>
         </div>
       </div >

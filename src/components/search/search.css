@@ -58,8 +58,7 @@ input.searchbar {
     color: var(--custom-turquoise);
 }
 
-.fa-trash-can:hover,
-.fa-trash-alt:hover {
+.fa-trash-can:hover {
     cursor: pointer;
     transform: scale(1.2);
     transition: all .2s ease-in-out;

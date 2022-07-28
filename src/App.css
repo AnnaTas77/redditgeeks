@@ -68,7 +68,9 @@ a {
 }
 
 .icon-container:hover {
-    color: var(--gradient-pink-to-yellow)
+    cursor: pointer;
+    border: 1px solid var(--custom-turquoise);
+    color: var(--custom-turquoise);
 }
 
 
@@ -83,6 +85,14 @@ a {
 .fa-github {
     font-size: 2.5rem;
 }
+
+.fa-envelope:hover,
+.fa-linkedin:hover,
+.fa-github:hover {
+    transform: scale(1.1);
+    transition: all .2s ease-in-out;
+}
+
 
 
 

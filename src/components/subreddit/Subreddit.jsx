@@ -7,14 +7,38 @@ import swal from 'sweetalert';
 
 function SubredditsBlock(props) {
 
-    const [subredditContainer, setSubredditContainer] = useState(props.initialSubreddit);
+    const [subredditName, setSubredditName] = useState(props.initialSubreddit);
     const [articles, setArticles] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
+    // const [errorState, setErrorState] = useState(null);
+
+    const persistNewSubredditName = (index, newSubreditName) => {
+        const currentSubs = localStorage.getItem("favouriteSubs");
+        if (currentSubs === null) {
+            console.log("Empty storage.")
+        } else {
+            let newSubs = JSON.parse(currentSubs);
+            newSubs[index] = newSubreditName;
+            localStorage.setItem("favouriteSubs", JSON.stringify(newSubs));
+            console.log("Storing in local storage.");
+        }
+    }
+
+    const loadPersistedSubredditName = (index) => {
+        const currentSubs = localStorage.getItem("favouriteSubs");
+        if (currentSubs === null) {
+            console.log("Empty storage.")
+        } else {
+            let currentSubsArray = JSON.parse(currentSubs);
+            return currentSubsArray[index];
+        }
+    }
 
     useEffect(() => {
         function fetchSubredit() {
-            fetch(`https://www.reddit.com/r/${subredditContainer}.json`).then(response => {
-                // console.log(response)
+            fetch(`https://www.reddit.com/r/${subredditName}.json`).then(response => {
+
                 if (!response.ok) {
                     throw Error('Could not fetch the data for that resourse.')
                 }
@@ -35,61 +59,53 @@ function SubredditsBlock(props) {
                 });
 
                 setArticles(myArticles);
+                setIsLoading(false);
+                persistNewSubredditName(props.localStorageIndex, subredditName);
 
             }).catch(err => {
-                console.log(err)
+                swal("This subreddit doesn't exist.");
+                setIsLoading(false);
+                const persistedSubredditName = loadPersistedSubredditName(props.localStorageIndex);
+                setSubredditName(persistedSubredditName);
+                console.log(err);
             });
         }
-
+        setIsLoading(true);
         const timeOutId = setTimeout(() => fetchSubredit(), 1000);
         const destructor = () => clearTimeout(timeOutId);
         return destructor;
-    }, [subredditContainer]);
+    }, [subredditName]);
 
 
     const onChange = (e) => {
-
         const userInput = e.currentTarget.value;
 
-        if (userInput.length <= 10) {
-            setSubredditContainer(userInput);
+        if (userInput.length <= 20) {
+            setSubredditName(userInput);
         } else {
-            swal("Please provide up to 10 characters.");
-        }
-
-        const currentSubs = localStorage.getItem("favouriteSubs")
-        if (currentSubs === null) {
-            console.log("Empty storage.")
-        } else {
-            let newSubs = JSON.parse(currentSubs)
-            newSubs[props.localStorageIndex] = e.currentTarget.value
-            localStorage.setItem("favouriteSubs", JSON.stringify(newSubs))
-            console.log("Storing in local storage.")
+            swal("Please provide up to 20 characters.");
         }
     };
-
 
     const onDelete = () => {
         props.deleteSubreddit(props.localStorageIndex)
     }
 
+
     return (
         <div className='subreddits-block col'>
             <div className='articles-container'>
-                <Search subreddit={subredditContainer} onChange={onChange} onDelete={onDelete} />
+                <Search subreddit={subredditName} onChange={onChange} onDelete={onDelete} />
                 <div className='articles-box'>
                     {
-                        (articles.length > 0) ? articles.map((article, index) =>
-
-                            < Article key={index} article={article} />
-                        ) : <div className='loading'>Loading articles...</div>
+                        (isLoading)
+                            ? <div className='loading'>Loading...</div>
+                            : articles.map((article, index) => <Article key={index} article={article} />)
                     }
                 </div>
-
             </div>
         </div>
     )
-
 }
 
 export default SubredditsBlock;

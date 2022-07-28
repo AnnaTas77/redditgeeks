@@ -12,10 +12,10 @@ const Addsub = (props) => {
     const subsHandler = (e) => {
         const userInput = e.currentTarget.value;
 
-        if (userInput.length <= 10) {
+        if (userInput.length <= 20) {
             setNewSubreddit(userInput);
         } else {
-            swal("Please provide up to 10 characters.");
+            swal("Please provide up to 20 characters.");
             setNewSubreddit("");
         }
 
@@ -25,7 +25,7 @@ const Addsub = (props) => {
         const addSubreddit = props.addSubreddit;
 
         if (newSubreddit !== "") {
-            addSubreddit(newSubreddit)
+            addSubreddit(newSubreddit);
             setNewSubreddit("");
         } else {
             swal("Please enter a subreddit title.");
@@ -35,10 +35,9 @@ const Addsub = (props) => {
     const onEnterPress = (e) => {
         //triggered by pressing the 'Enter' key    
         if (e.code === 'Enter') {
-            addNewSub()
+            addNewSub();
         }
     };
-
 
 
     return (
