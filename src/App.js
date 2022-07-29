@@ -11,20 +11,12 @@ function App() {
     localStorage.setItem("favouriteSubs", storedSubreddits);
   }
   const storedSubredditsArray = JSON.parse(storedSubreddits);
+  console.log('APP.JS storedSubredditsArray: ', storedSubredditsArray)
 
-  const [errorState, setErrorState] = useState(null);
-  const [subreddits, setSubreddits] = useState(storedSubredditsArray);
-
-  const errorHandler = (error) => {
-    console.log("Found this error: ", error);
-    setErrorState(error);
-    // console.log("Error state:", errorState) //object when null or string when error occurs
-
-  }
-
+  const [subreddits, setSubreddits] = useState(storedSubredditsArray); // STATE
 
   const addSubreddit = (newSubreddit) => {
-
+    newSubreddit = newSubreddit.toLowerCase();
     const storedSubs = localStorage.getItem("favouriteSubs");
 
     let subsArray;
@@ -35,9 +27,8 @@ function App() {
       subsArray = JSON.parse(storedSubs);
     }
 
-    if (subsArray.includes(newSubreddit.toLowerCase())) {
-      const lowerSub = newSubreddit.toLowerCase();
-      const capitalizedSub = lowerSub.charAt(0).toUpperCase() + lowerSub.slice(1);
+    if (subsArray.includes(newSubreddit)) {
+      const capitalizedSub = newSubreddit.charAt(0).toUpperCase() + newSubreddit.slice(1);
       swal({
         title: `"${capitalizedSub}" already exists.`,
       });
@@ -45,6 +36,7 @@ function App() {
     }
 
     subsArray.push(newSubreddit);
+    console.log('subsArray', subsArray)
     localStorage.setItem("favouriteSubs", JSON.stringify(subsArray));
     setSubreddits(subsArray);
   }
@@ -60,19 +52,37 @@ function App() {
   }
 
 
+  const onError = (errorSubreddit) => {
+
+    console.log('APP.JS - errorSubreddit: ', errorSubreddit);
+
+    const currentSubs = localStorage.getItem("favouriteSubs");
+
+    if (currentSubs === null) {
+      console.log("Empty storage.")
+    } else {
+      let currentSubsArray = JSON.parse(currentSubs); // converts data to JS array
+      console.log('currentSubsArray: ', currentSubsArray);
+      const noErrorArray = currentSubsArray.filter(subs => subs !== errorSubreddit);
+      localStorage.setItem("favouriteSubs", JSON.stringify(noErrorArray));
+      setSubreddits(noErrorArray);
+    }
+  }
+
+
   return (
     <div>
       <div className="app-container">
 
         <Navbar />
 
-        <div className='subreddits-container flex-grid'>
+        <div className='subreddit-container'>
           {subreddits.map((subreddit, index) => {
             return <Subreddit key={subreddit} localStorageIndex={index} initialSubreddit={subreddit}
-              deleteSubreddit={deleteSubreddit} onError={errorHandler} />
+              deleteSubreddit={deleteSubreddit} onError={onError} />
           })}
           <div className='add-subreddit'>
-            <Addsub addSubreddit={addSubreddit} onError={errorHandler} />
+            <Addsub addSubreddit={addSubreddit} />
           </div>
         </div>
       </div >

@@ -5,21 +5,19 @@ import './subreddit.css';
 import swal from 'sweetalert';
 
 
-function SubredditsBlock(props) {
+function SubredditBlock(props) {
 
     const [subredditName, setSubredditName] = useState(props.initialSubreddit);
     const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    // const [errorState, setErrorState] = useState(null);
-
-    const persistNewSubredditName = (index, newSubreditName) => {
+    const persistNewSubredditName = (index, newSubredditName) => {
         const currentSubs = localStorage.getItem("favouriteSubs");
         if (currentSubs === null) {
             console.log("Empty storage.")
         } else {
             let newSubs = JSON.parse(currentSubs);
-            newSubs[index] = newSubreditName;
+            newSubs[index] = newSubredditName; //overwrites previous existing subreddit on this position(index)
             localStorage.setItem("favouriteSubs", JSON.stringify(newSubs));
             console.log("Storing in local storage.");
         }
@@ -35,12 +33,17 @@ function SubredditsBlock(props) {
         }
     }
 
+    const handleErrors = (errorSubreddit) => {
+        props.onError(errorSubreddit);
+
+    }
+
     useEffect(() => {
-        function fetchSubredit() {
+        function fetchSubreddit() {
             fetch(`https://www.reddit.com/r/${subredditName}.json`).then(response => {
 
                 if (!response.ok) {
-                    throw Error('Could not fetch the data for that resourse.')
+                    throw Error('Could not fetch the data for that resource.')
                 }
                 return response.json();
 
@@ -63,27 +66,40 @@ function SubredditsBlock(props) {
                 persistNewSubredditName(props.localStorageIndex, subredditName);
 
             }).catch(err => {
-                swal("This subreddit doesn't exist.");
                 setIsLoading(false);
+                handleErrors(props.localStorageIndex, subredditName)
+                swal("This subreddit doesn't exist.");
+
                 const persistedSubredditName = loadPersistedSubredditName(props.localStorageIndex);
-                setSubredditName(persistedSubredditName);
+                setSubredditName(persistedSubredditName); // sets the current subreddit name to the previous valid value
                 console.log(err);
             });
         }
         setIsLoading(true);
-        const timeOutId = setTimeout(() => fetchSubredit(), 1000);
+        const timeOutId = setTimeout(() => fetchSubreddit(), 1000);
         const destructor = () => clearTimeout(timeOutId);
         return destructor;
     }, [subredditName]);
 
 
     const onChange = (e) => {
+        const storedSubs = JSON.parse(localStorage.getItem("favouriteSubs"));
         const userInput = e.currentTarget.value;
+        const lowCaseUserInput = userInput.toLowerCase();
 
-        if (userInput.length <= 20) {
-            setSubredditName(userInput);
+        if (storedSubs.includes(lowCaseUserInput)) {
+            const capitalizedSub = lowCaseUserInput.charAt(0).toUpperCase() + lowCaseUserInput.slice(1);
+            swal({
+                title: `"${capitalizedSub}" already exists.`,
+            });
+            setSubredditName("");
+            return;
         } else {
-            swal("Please provide up to 20 characters.");
+            if (lowCaseUserInput.length <= 20) {
+                setSubredditName(lowCaseUserInput);
+            } else {
+                swal("Please provide up to 20 characters.");
+            }
         }
     };
 
@@ -93,7 +109,7 @@ function SubredditsBlock(props) {
 
 
     return (
-        <div className='subreddits-block col'>
+        <div className='subreddit-block'>
             <div className='articles-container'>
                 <Search subreddit={subredditName} onChange={onChange} onDelete={onDelete} />
                 <div className='articles-box'>
@@ -108,4 +124,4 @@ function SubredditsBlock(props) {
     )
 }
 
-export default SubredditsBlock;
+export default SubredditBlock;

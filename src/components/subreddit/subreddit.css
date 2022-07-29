@@ -1,4 +1,4 @@
-.subreddits-container {
+.subreddit-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -10,16 +10,7 @@
 
 }
 
-.subreddits-wrapper {
-    width: 93%;
-    column-gap: 24px;
-    row-gap: 24px;
-    margin-top: 100px;
-    justify-content: center;
-}
-
-
-.subreddits-block {
+.subreddit-block {
     display: flex;
     width: 480px;
     overflow: hidden;

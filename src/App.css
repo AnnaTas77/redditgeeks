@@ -95,18 +95,16 @@ a {
 
 
 
-
-
 /* Media Query for Smartphones */
 
 @media (max-width: 767px) {
 
-    .subreddits-container {
+    .subreddit-container {
         width: 95%;
         padding: 50px 0px 50px 0px;
     }
 
-    .subreddits-block {
+    .subreddit-block {
         width: 95%;
     }
 
@@ -149,12 +147,12 @@ a {
 
 @media (min-width: 768px) and (max-width: 1023px) {
 
-    .subreddits-container {
+    .subreddit-container {
         width: 95%;
         padding: 50px 0px 50px 0px;
     }
 
-    .subreddits-block {
+    .subreddit-block {
         width: 90%;
     }
 
@@ -191,7 +189,6 @@ a {
         height: 55px;
         width: 55px;
     }
-
 }
 
 

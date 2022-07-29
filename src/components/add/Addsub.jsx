@@ -6,19 +6,17 @@ import swal from 'sweetalert';
 
 const Addsub = (props) => {
 
-    const [newSubreddit, setNewSubreddit] = useState("");
-
+    const [newSubreddit, setNewSubreddit] = useState(""); //STATE
 
     const subsHandler = (e) => {
         const userInput = e.currentTarget.value;
-
+        userInput.toLowerCase();
         if (userInput.length <= 20) {
             setNewSubreddit(userInput);
         } else {
             swal("Please provide up to 20 characters.");
             setNewSubreddit("");
         }
-
     };
 
     const addNewSub = () => {
@@ -55,4 +53,4 @@ const Addsub = (props) => {
     )
 }
 
-export default Addsub
+export default Addsub;
