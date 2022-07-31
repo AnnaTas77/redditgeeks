@@ -11,7 +11,6 @@ function App() {
     localStorage.setItem("favouriteSubs", storedSubreddits);
   }
   const storedSubredditsArray = JSON.parse(storedSubreddits);
-  console.log('APP.JS storedSubredditsArray: ', storedSubredditsArray)
 
   const [subreddits, setSubreddits] = useState(storedSubredditsArray); // STATE
 
@@ -36,7 +35,6 @@ function App() {
     }
 
     subsArray.push(newSubreddit);
-    console.log('subsArray', subsArray)
     localStorage.setItem("favouriteSubs", JSON.stringify(subsArray));
     setSubreddits(subsArray);
   }
@@ -54,15 +52,11 @@ function App() {
 
   const onError = (errorSubreddit) => {
 
-    console.log('APP.JS - errorSubreddit: ', errorSubreddit);
-
     const currentSubs = localStorage.getItem("favouriteSubs");
-
     if (currentSubs === null) {
       console.log("Empty storage.")
     } else {
       let currentSubsArray = JSON.parse(currentSubs); // converts data to JS array
-      console.log('currentSubsArray: ', currentSubsArray);
       const noErrorArray = currentSubsArray.filter(subs => subs !== errorSubreddit);
       localStorage.setItem("favouriteSubs", JSON.stringify(noErrorArray));
       setSubreddits(noErrorArray);

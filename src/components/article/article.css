@@ -61,7 +61,6 @@
     background: transparent;
     padding: 0;
     scrollbar-width: none;
-    overflow: scroll;
 }
 
 .article-title h4 {

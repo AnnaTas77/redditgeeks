@@ -67,7 +67,7 @@ function SubredditBlock(props) {
 
             }).catch(err => {
                 setIsLoading(false);
-                handleErrors(props.localStorageIndex, subredditName)
+                handleErrors(subredditName);
                 swal("This subreddit doesn't exist.");
 
                 const persistedSubredditName = loadPersistedSubredditName(props.localStorageIndex);
