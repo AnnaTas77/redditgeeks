@@ -33,11 +33,6 @@ function SubredditBlock(props) {
         }
     }
 
-    const handleErrors = (errorSubreddit) => {
-        props.onError(errorSubreddit);
-
-    }
-
     useEffect(() => {
         function fetchSubreddit() {
             fetch(`https://www.reddit.com/r/${subredditName}.json`).then(response => {
@@ -67,7 +62,7 @@ function SubredditBlock(props) {
 
             }).catch(err => {
                 setIsLoading(false);
-                handleErrors(subredditName);
+                props.onError(subredditName);
                 swal("This subreddit doesn't exist.");
 
                 const persistedSubredditName = loadPersistedSubredditName(props.localStorageIndex);
