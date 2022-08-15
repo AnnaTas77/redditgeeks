@@ -13,7 +13,7 @@ const Addsub = (props) => {
         userInput.toLowerCase();
 
         if (userInput.length <= 20) {
-            setNewSubreddit(userInput.trim());
+            setNewSubreddit(userInput);
         } else {
             swal("Please provide up to 20 characters.");
             setNewSubreddit("");
@@ -24,7 +24,7 @@ const Addsub = (props) => {
         const addSubreddit = props.addSubreddit;
 
         if (newSubreddit !== "") {
-            addSubreddit(newSubreddit);
+            addSubreddit(newSubreddit.trim());
             setNewSubreddit("");
         } else {
             swal("Please enter a subreddit title.");

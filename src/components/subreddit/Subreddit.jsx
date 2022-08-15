@@ -70,10 +70,16 @@ function SubredditBlock(props) {
                 console.log(err);
             });
         }
-        setIsLoading(true);
-        const timeOutId = setTimeout(() => fetchSubreddit(), 1000);
-        const destructor = () => clearTimeout(timeOutId);
-        return destructor;
+
+        if (subredditName === "") {
+            setIsLoading(false);
+            return;
+        } else {
+            setIsLoading(true);
+            const timeOutId = setTimeout(() => fetchSubreddit(), 1000);
+            const destructor = () => clearTimeout(timeOutId);
+            return destructor;
+        }
     }, [subredditName]);
 
 
