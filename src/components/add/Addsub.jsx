@@ -11,8 +11,9 @@ const Addsub = (props) => {
     const subsHandler = (e) => {
         const userInput = e.currentTarget.value;
         userInput.toLowerCase();
+
         if (userInput.length <= 20) {
-            setNewSubreddit(userInput);
+            setNewSubreddit(userInput.trim());
         } else {
             swal("Please provide up to 20 characters.");
             setNewSubreddit("");

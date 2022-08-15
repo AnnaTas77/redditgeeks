@@ -100,7 +100,7 @@ a {
 @media (max-width: 767px) {
 
     .subreddit-container {
-        width: 95%;
+        width: 90%;
         padding: 50px 0px 50px 0px;
     }
 
@@ -109,7 +109,7 @@ a {
     }
 
     .add-subreddit {
-        width: 90%;
+        width: 95%;
     }
 
     .articles-container {

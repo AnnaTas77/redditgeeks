@@ -9,6 +9,10 @@
     height: 100%;
 }
 
+.invisible-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
 .loading {
     justify-content: center;
     display: flex;

@@ -91,7 +91,7 @@ function SubredditBlock(props) {
             return;
         } else {
             if (lowCaseUserInput.length <= 20) {
-                setSubredditName(lowCaseUserInput);
+                setSubredditName(lowCaseUserInput.trim());
             } else {
                 swal("Please provide up to 20 characters.");
             }
@@ -107,7 +107,7 @@ function SubredditBlock(props) {
         <div className='subreddit-block'>
             <div className='articles-container'>
                 <Search subreddit={subredditName} onChange={onChange} onDelete={onDelete} />
-                <div className='articles-box'>
+                <div className='articles-box invisible-scrollbar'>
                     {
                         (isLoading)
                             ? <div className='loading'>Loading...</div>
