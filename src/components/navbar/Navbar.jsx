@@ -1,13 +1,13 @@
 import React from 'react';
 import './navbar.css';
-import logo from '../../assets/logo.png'
+import Logo from '../../assets/redditgeeks-iconA11bbig.png'
 
 
 const Navbar = () => {
     return (
         <div className='nav-container'>
             <div className='nav-logo'>
-                <img src={logo} alt='logo' />
+                <img src={Logo} alt='logo' />
             </div>
             <div className='website-name'>
                 Reddit Geeks

@@ -50,15 +50,12 @@ input.searchbar {
     border-bottom-left-radius: 0px;
 }
 
-
-.fa-trash-alt::before,
-.fa-trash-can::before {
-    content: "\f2ed";
+.delete-button svg {
     font-size: 1.5rem;
     color: var(--custom-turquoise);
 }
 
-.fa-trash-can:hover {
+.delete-button svg:hover {
     cursor: pointer;
     transform: scale(1.2);
     transition: all .2s ease-in-out;

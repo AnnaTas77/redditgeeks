@@ -1,5 +1,8 @@
 import React from "react";
 import './search.css';
+import { FaTrashAlt } from 'react-icons/fa';
+
+
 
 
 function Search(props) {
@@ -7,7 +10,7 @@ function Search(props) {
     let deleteButton;
     let searchbarBorderClasses = "searchbar-container";
     if (props.onDelete !== undefined) {
-        deleteButton = <button className="delete-button" onClick={props.onDelete}><i className="fa-solid fa-trash-can"></i></button>
+        deleteButton = <button className="delete-button" onClick={props.onDelete}><FaTrashAlt /></button>
         searchbarBorderClasses += " searchbar-border-with-delete"
     } else {
         searchbarBorderClasses += " searchbar-without-delete"

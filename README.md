@@ -25,6 +25,7 @@ https://annatas77.github.io/redditgeeks/
 + JavaScript
 + React
 + CSS
++ localStorage
 
 # Scripts
 

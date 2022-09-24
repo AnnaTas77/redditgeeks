@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaLinkedin, FaGithubSquare, FaEnvelopeSquare } from 'react-icons/fa'
 import { Navbar, Subreddit, Addsub } from './components';
 import './App.css';
 import swal from 'sweetalert';
@@ -85,17 +86,17 @@ function App() {
         <div className='social'>
           <a href="mailto:hello.annatas@gmail.com" aria-label="Anna's email - Click to copy." target="_blank">
             <div className="icon-container">
-              <i className="fa-solid fa-envelope"></i>
+              <FaEnvelopeSquare />
             </div>
           </a>
           <a href="https://www.linkedin.com/in/anna-tasheva-48074085/" aria-label="Anna's LinkedIn profile." target="_blank">
             <div className="icon-container">
-              <i className="fa-brands fa-linkedin"></i>
+              <FaLinkedin />
             </div>
           </a>
           <a href="https://github.com/AnnaTas77" aria-label="Anna's GitHub profile." target="_blank">
             <div className="icon-container">
-              <i className="fa-brands fa-github"></i>
+              <FaGithubSquare />
             </div>
           </a>
         </div>
