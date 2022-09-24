@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/redditgeeks/static/css/main.20cc5f29.css",
-    "main.js": "/redditgeeks/static/js/main.60895426.js",
+    "main.css": "/redditgeeks/static/css/main.c3121334.css",
+    "main.js": "/redditgeeks/static/js/main.1994a719.js",
+    "static/media/redditgeeks-icon-viewbox.svg": "/redditgeeks/static/media/redditgeeks-icon-viewbox.80eb74e2b17b5c5fab47ffb8f5007763.svg",
     "index.html": "/redditgeeks/index.html",
-    "main.20cc5f29.css.map": "/redditgeeks/static/css/main.20cc5f29.css.map",
-    "main.60895426.js.map": "/redditgeeks/static/js/main.60895426.js.map"
+    "main.c3121334.css.map": "/redditgeeks/static/css/main.c3121334.css.map",
+    "main.1994a719.js.map": "/redditgeeks/static/js/main.1994a719.js.map"
   },
   "entrypoints": [
-    "static/css/main.20cc5f29.css",
-    "static/js/main.60895426.js"
+    "static/css/main.c3121334.css",
+    "static/js/main.1994a719.js"
   ]
 }
