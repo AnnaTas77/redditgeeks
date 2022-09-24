@@ -7,7 +7,7 @@ The projects uses the unofficial JSON Reddit API to recreate a simplified read-o
 
 # Screenshots
 
-![Screenshot of the Reddit Geeks ](./src/assets/Reddit%20Screenshot.JPG "Reddit Geeks")
+![Screenshot of the Reddit Geeks ](./src/assets/RedditScreenshotNew.jpg "Reddit Geeks")
 
 # See live 
 https://annatas77.github.io/redditgeeks/
