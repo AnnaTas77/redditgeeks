@@ -1,6 +1,6 @@
 import React from 'react';
 import './navbar.css';
-import Logo from '../../assets/redditgeeks-icon-viewbox.svg'
+import Logo from '../../assets/redditgeeks-Color_Best3.svg'
 
 
 const Navbar = () => {
